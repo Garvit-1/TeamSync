@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+
+        function validateForm(){
+        let un = document.forms["log"]["username"].value
+        if (un.length < 6) {
+            alert("UserName must be atleast 6 digit");
+            return false;
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header {
+            height: 10vh;
+            background: black;
+        }
+
+        header a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        main {
+            height: 80vh;
+            padding: 20px;
+            background-image: url("https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+        form {
+            background: rgb(187 219 242 / 0.67);
+            border: 2px solid black;
+            padding: 50px;
+            text-align: center;
+            width: 900px;
+            margin: auto;
+        }
+
+        form:hover {
+            background: rgb(187 219 242);
+
+        }
+
+        .btn {
+            height: 30px;
+            width: 70px;
+            border-radius: 5px;
+            background: #00b8ff8f;
+            cursor: pointer;
+        }
+
+        .fin {
+            height: 20px;
+            border-radius: 5px;
+
+        }
+
+        footer {
+            height: 5vh;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <a href="home.html"> Home </a>
+            <a href="login.html"> Login </a>
+            <a href="signup.html"> Sign-Up </a>
+            <ul>
+    </header>
+    <main>
+        <div class="login-box">
+            <h1>Employee - Login</h1>
+            <br><br>
+            <form id="log" onsubmit="return validateForm()" action="login.php" method="post">
+                <label for="uname">Username:</label>
+                <input class="fin"  type="text" id="username" name="username" 
+                    placeholder="Enter Username">
+                <br>
+                <br>
+                <label for="pwd">Password: </label>
+                <input class="fin" onkeydown="return Keydown()" type="password" name="pwd" required
+                    placeholder="Enter Password">
+                <br>
+                <br>
+                <input class="btn" type="submit" value="Login">
+                
+            </form>
+        </div>
+    </main>
+    <footer>
+        <h> Copyrights &copy Company</h>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link rel="icon" type="image/ico" href="img\android-chrome-512x512.png" >
+    <script>
+        function validateForm() {
+            let x = document.forms["suf"]["fname"].value;
+            let un = document.forms["suf"]["username"].value
+            let pw = document.forms["suf"]["pwd"].value
+            let cpw = document.forms["suf"]["cpwd"].value
+            let email=document.forms["suf"]["email"].value
+            function ValidateEmail(inputText) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (email.value.match(mailformat)) {
+                    return true;
+                }
+                else {return false;
+                }
+            }
+
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            else if (un.length < 6) {
+                alert("UserName must be atleast 6 digit");
+                return false;
+            }
+            else if (pwd.length < 8) {
+                alert("Password must be atleast 8 digit");
+                return false;
+            }
+            else if (pw != cpw) {
+                alert("Password and Confirm Password must be Same");
+                return false;
+            }
+            else if(ValidateEmail(email)!=true){
+                alert("Please Enter Correct Email.");
+                return false;
+            }
+
+      }
+    </script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        header {
+            height: 10vh;
+            background: black;
+        }
+
+        header a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        main {
+            min-height: 80vh;
+            padding: 20px;
+            background-image: url("img/bgimage.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+        }
+
+        form {
+            border: 2px solid black;
+            margin: auto;
+            width: 60em;
+            background: rgb(187 219 242 / 0.67);
+            text-align: center;
+        }
+
+        form:hover {
+            background: rgb(187 219 242);
+
+        }
+
+        .btn {
+            height: 30px;
+            width: 70px;
+            background: #00b8ff8f;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            height: 5vh;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+
+        .fin {
+            height: 20px;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <a href="home.html"> Home </a>
+            <a href="login.html"> Login </a>
+            <a href="signup.html"> Sign-Up </a>
+            <ul>
+    </header>
+    <main>
+        <h1>Sign-Up Page</h1>
+        <form id="suf" onSubmit="return validateForm()" name="suf" action="signup.php" method="Post">
+            <br>
+            <label for="fname">First Name:</label>
+            <input class="fin" type="text" id="fname" name="fname" placeholder="Enter Your First Name." autofocus required>
+            <label for="lname">Last Name:</label>
+            <input class="fin" type="text" id="lname" name="lname" placeholder="Middle And last Name." required><br>
+            <br>
+            <label for="email">Enter your email&#42;:</label>
+            <input class="fin" type="email" id="email" name="email" placeholder="someone@example.com" required>
+            <label for="username">Username&#42;:</label>
+            <input class="fin" type="text" id="username" name="username" required placeholder="Atleast 6 digits" pattern=".{6,}"><br><br>
+            <label for="pwd">Password&#42;:</label>
+            <input class="fin" type="password" id="pwd" name="pwd" placeholder="Atleast 8 digit" required pattern=".{8,}">
+            <label for="cpwd"> Confirm Password&#42;:</label>
+            <input class="fin" type="password" id="cpwd" name="cpwd" placeholder="Same as Password" required><br><br>
+            <label for="dob">Date of Birth:</label>
+            <input class="fin" type="date" id="dob" name="dob">
+            <label for="mob">Mobile Number&#42;:</label>
+            <input class="fin" type="tel" id="mob" name="mob" placeholder="9813332252" pattern="[0-9]{10}" required><br><br>
+            Which Post You Are Recruited For:
+            <input class="fin" type="radio" id="sde" name="post" value="sde">
+            <label for="sde">Software Developer</label>
+            <input class="fin" type="radio" id="mgr" name="post" value="mgr">
+            <label for="mgr">Manager</label>
+            <input class="fin" type="radio" id="ass" name="post" value="ass">
+            <label for="ass">Assistant</label>
+            <br><br>
+            <label for="exp">Experience In the field:</label>
+            <input class="fin" type="number" id="exp" name="exp" min="0">
+            <label for="branch">Choose Your Study Branch:</label>
+            <select name="branch" id="branch">
+                <option value="cs">Computer Science</option>
+                <option value="it">Information Technology</option>
+                <option value="ece">ECE</option>
+                <option value="oth">Others</option>
+            </select><br><br>
+            <label for="addr"><b>Enter Your Complete Address:</b></label><br>
+            <textarea name="addr" id="addr" cols="100" rows="3"></textarea> <br><br>
+            <!-- Upload Your Passport Size Photo(max-size: 2mb):
+            <input type="file" name="photo" id="photo"><br><br> -->
+            <input class="btn" type="submit" value="Sign-Up">
+            <input class="btn" type="reset" name="reset">
+            <br>
+            <br>
+            <p style="color:red" id="alert" name="alert"> </p>
+        </form>
+
+
+    </main>
+    <footer>
+        <h> Copyrights &copy Company</h>
+    </footer>
+</body>
+
+</html>
